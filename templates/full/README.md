@@ -1,12 +1,12 @@
 ## Полные версии страниц
 * [x] index
 * [x] profile_trainer
-* [ ] profile_client
+* [x] profile_client
 * [ ] ???
 
 ---
 
 ## Нужно разбить на компоненты
 * [x] index
-* [ ] trainer
-* [ ] client
+* [x] trainer
+* [x] client
