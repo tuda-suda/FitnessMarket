@@ -1,0 +1,26 @@
+<div class="d-flex my-5 mw-100">
+    <div style="background-color: #eee;">
+        <!-- TODO: AVATAR THUMBNAIL -->
+        PROFILE AVATAR PLACEHOLDER
+    </div>
+    <div class="column flex-fill">
+        <h2 class="p-2 ml-4">{{ trainer.get_full_name }}</h2>
+        <div
+            class="d-flex justify-content-around align-items-center w-100 py-3"
+            style="background-color: #eee;"
+        >
+            <div class="column">
+                <div class="text-center">Регион</div>
+                <h3 class="text-center">{{ trainer.location }}</h3>
+            </div>
+            <div class="vl"></div>
+            <div class="column">
+                <div class="text-center">Возраст</div>
+                <h3 class="text-center">{{ trainer.age }}</h3>
+            </div>
+            <div class="vl"></div>
+            <!-- TODO: TRAINER CONTACT URL/PAGE -->
+            <a href="#" class="btn-lg btn-primary h-25" role="button">Связаться</a>
+        </div>
+    </div>
+</div>

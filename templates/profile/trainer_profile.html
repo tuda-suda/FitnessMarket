@@ -1,0 +1,32 @@
+{% extends "../base.html" %}
+{% block title %}{{ trainer.get_ful_name }} - профиль тренера{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include "includes/trainer/trainer_profile_card.html" %}
+        {% include "includes/trainer/trainer_menu.html" %}
+        <div class="w-100">
+            <div class="my-4 p-3 d-flex w-100" style="background-color: #eee;">
+                <div class="column mx-2">
+                    <div class="text-center">Средний рейтинг</div>
+                    <h3 class="text-center">{{ trainer.rating }}/5.0</h3>
+                </div>
+                <div class="vl"></div>
+                <div class="column mx-2">
+                    <div class="text-center">Клиентов</div>
+                    <h3 class="text-center">{{ trainer.clients.count }}</h3>
+                </div>
+                <div class="vl"></div>
+                <div class="column mx-2">
+                    <div class="text-center">Отзывов</div>
+                    <h3 class="text-center">{{ trainer.reviews.count }}</h3>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap mx-n3">
+            {% for service in trainer.services %}
+                {% include "includes/trainer/service_card.html" %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

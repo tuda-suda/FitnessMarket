@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .vl {
+            position: relative;
+            display: inline-block;
+            height: 4em;
+            margin: 0 8px;
+            vertical-align: middle;
+            border-top: 0;
+            border-left: 1px solid darkgray;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">FitnessMarket</a>
+        <div class="d-flex flex-row justify-content-between vw-100">
+            <div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Тренеры</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О нас</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <form class="form-inline ">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            <div>
+                <a hreg="#" class="btn btn-outline-primary" role="button">Войти</a>
+                <a hreg="#" class="btn btn-outline-primary" role="button">Зарегистрироваться</a>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- PAGE CONTENT -->
+    <div class="container">
+        <!-- PROFILE CARD -->
+        <div class="d-flex my-5 mw-100">
+            <div style="background-color: #eee;">
+                PROFILE AVATAR PLACEHOLDER
+            </div>
+            <div class="column flex-fill">
+                <h2 class="p-2 ml-4">Имя Фамилия</h2>
+                <div
+                    class="d-flex justify-content-around align-items-center w-100 py-3"
+                    style="background-color: #eee;"
+                >
+                    <div class="column">
+                        <div class="text-center">Регион</div>
+                        <h3 class="text-center">Москва</h3>
+                    </div>
+                    <div class="vl"></div>
+                    <div class="column">
+                        <div class="text-center">Возраст</div>
+                        <h3 class="text-center">27</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PROFILE CARD END -->
+
+        <h3>Программы тренировок</h3>
+
+        <!-- TRAINING PROGRAMS -->
+        <div class="w-100">
+            <hr>
+            <h4>Текущие программы</h4>
+            <!-- CURRENT PROGRAMS LIST -->
+                <!-- TRAINING PROGRAM CARD -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="card-title">Пауэрлифтинг</h5>
+                                <p>Тренер: <a href="#">Супер Тренер</a></p>
+                            </div>
+                            <div class="vl"></div>
+                            <div>
+                                <p>Начало программы: 08.07.2020</p>
+                                <p>Длительность программы: 10 недель</p>
+                            </div>
+                            <div class="vl"></div>
+                            <div>
+                                <p>Текущая стадия: неделя 1</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <a href="#" role="button" class="btn btn-primary">Смотреть программу упражнений</a>
+                    </div>
+                </div>
+                <!-- END TRAINING PROGRAM CARD -->
+            <!-- END CURRENT PROGRAMS LIST -->
+
+            <hr>
+            <h4>Завершенные программы</h4>
+            <!-- COMPLETED PROGRAMS LIST-->
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h5 class="card-title">Пауэрлифтинг</h5>
+                            <p>Тренер: <a href="#">Супер Тренер</a></p>
+                        </div>
+                        <div class="vl"></div>
+                        <div>
+                            <p>Начало программы: 08.07.2020</p>
+                            <p>Длительность программы: Завершено</p>
+                        </div>
+                        <div class="vl"></div>
+                        <div>
+                            <p>Текущая стадия: неделя 1</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <a href="#" role="button" class="btn btn-primary">Смотреть программу упражнений</a>
+                </div>
+            </div>
+            <!-- END COMPLETED PROGRAMS LIST -->
+        </div>
+        <!-- END TRAINNG PROGRAMS -->
+    </div>
+    <!-- END PAGE CONTENT -->
+
+    <!-- FOOTER -->
+    <footer class="footer pt-4 my-md-5 pt-md-5 border-top mr-0">
+        <div class="container">
+            Footer™ 2020
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>
