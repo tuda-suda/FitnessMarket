@@ -1,0 +1,23 @@
+{% extends "../base.html" %}
+{% block title %}{{ client.get_ful_name }} - профиль клиента{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include "includes/client/client_profile_card.html" %}
+        {% include "includes/trainer_menu.html" %}
+        <div class="w-100">
+            <hr>
+            <h4>Текущие программы</h4>
+            {% for program in client.current_programs %}
+                {% include "includes/client/training_program_card.html" %}
+            {% endfor %}
+            {% if client.completed_programs %}
+                <hr>
+                <h4>Завершенные программы</h4>
+                {% for program in client.completed_programs %}
+                    {% include "includes/client/training_program_card.html" %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

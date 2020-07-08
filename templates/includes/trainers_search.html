@@ -1,0 +1,50 @@
+<div class="vh-100">
+    <h2 class="mb-5">Тренеры</h2>
+    <div class="d-flex mh-100">
+        <!-- TRAINERS LIST -->
+        <div class="flex-fill d-flex flex-wrap row">
+            {% for trainer in trainers_list %}
+                <!-- SINGLE TRIANER CARD -->
+                {% include 'trainer_card.html' %}
+                <!-- END SINGLE TRAINER CARD -->
+            {% endfor %}
+        </div>
+        <!-- END TRAINERS LIST -->
+
+        <!-- SEARCH FILTER FORM BOX -->
+        <div class="card p-3 mt-1 h-100 col-lg-4">
+            <!-- TODO: REPLACE FORM ELEMENT WITH DJANGO TEMPLATE  -->
+            <form>
+                <select class="form-control mb-3" aria-placeholder="Регион">
+                    <option>Москва</option>
+                    <option>Санкт-Петербург</option>
+                    <option>Владивосток</option>
+                    <option>Казань</option>
+                </select>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="radio-male" checked>
+                    <label class="form-check-label" for="radio-male">
+                        Мужчина
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="radio-female" checked>
+                    <label class="form-check-label" for="radio-female">
+                        Женщина
+                    </label>
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <input type="number" class="form-control" placeholder="Цена от" style="max-width: 45%;">
+                    <input type="number" class="form-control" placeholder="Цена до" style="max-width: 45%;">
+                </div>
+                <select class="form-control mt-3 mb-3" aria-placeholder="Вид спорта">
+                    <option>Кроссфит</option>
+                    <option>Пауэрлифтинг</option>
+                    <option>Йога</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Найти тренера</button>
+            </form>
+        </div>
+        <!-- END SEARCH FILTER FORM BOX -->
+    </div>
+</div>

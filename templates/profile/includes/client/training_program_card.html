@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h5 class="card-title">{{ program.name }}</h5>
+                <p>Тренер: <a href="#">{{ program.trainer.get_full_name }}</a></p>
+            </div>
+            <div class="vl"></div>
+            <div>
+                <p>Начало программы: {{ program.start_date }}</p>
+                <p>Длительность программы: {{ program.duration }} недель</p>
+            </div>
+            <div class="vl"></div>
+            <div>
+                <p>Текущая стадия: {{ program.current_stage }}</p>
+            </div>
+        </div>
+        <hr>
+        <!-- TODO: TRAINING PROGRAM PAGE -->
+        <a href="#" role="button" class="btn btn-primary">Смотреть программу упражнений</a>
+    </div>
+</div>

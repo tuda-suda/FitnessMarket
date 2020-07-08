@@ -1,0 +1,23 @@
+<div class="d-flex my-5 mw-100">
+    <div style="background-color: #eee;">
+        <!-- TODO: CLIENT AVATAR THUMBNAIL -->
+        PROFILE AVATAR PLACEHOLDER
+    </div>
+    <div class="column flex-fill">
+        <h2 class="p-2 ml-4">{{ client.get_full_name }}</h2>
+        <div
+            class="d-flex justify-content-around align-items-center w-100 py-3"
+            style="background-color: #eee;"
+        >
+            <div class="column">
+                <div class="text-center">Регион</div>
+                <h3 class="text-center">{{ client.location }}</h3>
+            </div>
+            <div class="vl"></div>
+            <div class="column">
+                <div class="text-center">Возраст</div>
+                <h3 class="text-center">{{ client.age }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
