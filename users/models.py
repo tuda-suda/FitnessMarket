@@ -8,7 +8,7 @@ GENDERS = (
         ("F", "Женщина"),
     )
 
-class Customer(models.Model):
+class Client(models.Model):
     user = models.OneToOneField(User, models.CASCADE)
     goal = models.TextField('цель тренировок')
     diseases = models.TextField('противопоказания', blank=True, null=True)
@@ -22,8 +22,8 @@ class Customer(models.Model):
     birth_date = models.DateField('дата рождения', null=True, blank=True)
 
 
-class Instructor(models.Model):
-    customer = models.ForeignKey(Customer, models.CASCADE, "customers")
+class Trainer(models.Model):
+    clients = models.ForeignKey Client, models.CASCADE,  "clients")
     user = models.OneToOneField(User, models.CASCADE)
     sport = models.CharField('вид спорта', max_length=50)
     cost = models.PositiveSmallIntegerField('рублей за час')
@@ -33,17 +33,17 @@ class Instructor(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(sender, model, instance, created, **kwargs):
     if created:
-        if model == Customer:
-            Customer.objects.create(user=instance)
+        if model == Client:
+            Client.objects.create(user=instance)
         else:
-            Instructor.objects.create(user=instance)
+            Trainer.objects.create(user=instance)
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, model, instance, **kwargs):
-    if model == Customer:
-        instance.customer.save()
+    if model == Client:
+        instance Client.save()
     else:
-        instance.instructor.save()
+        instance.Trainer.save()
 
 
 class Feedback(models.Model):
@@ -52,19 +52,19 @@ class Feedback(models.Model):
         ('2', 'Плохой тренер'),
         ('3', 'Нормальный тренер'),
         ('4', 'Хороший тренер'),
-        ('5', 'Лучшей тренер')
+        ('5', 'Лучший тренер')
     )
-    author = models.ForeignKey(Customer, models.CASCADE, "feedbacks")
-    instructor = models.ForeignKey(Customer, models.CASCADE, "feedbacks")
+    author = models.ForeignKey(Client, models.CASCADE, "feedbacks")
+    trainer = models.ForeignKey(Client, models.CASCADE, "feedbacks")
     text = models.TextField('отзыв')
     created = models.DateTimeField('дата публикации', auto_now_add=True)
     rate = models.CharField('оценка', max_length=1, choices=MARKS)
 
 
-class Programm(models.Model):
-    customer = models.ForeignKey(Customer, models.CASCADE, "programm")
-    instructor = models.ForeignKey(Customer, models.CASCADE, "programms")
+class TrainingProgramm(models.Model):
+    client = models.ForeignKey(Client, models.CASCADE, "program")
+    trainer = models.ForeignKey(TRainer, models.CASCADE, "programs")
     text = models.TextField('программа тренировок')
     
     class Meta:
-        unique_together = ["customer", "instructor"]
+        unique_together = [ Client", "Trainer"]
