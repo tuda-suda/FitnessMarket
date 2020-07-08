@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from users.models import Client, Trainer
+from .models import Client, Trainer
 
 
 def profile_client(request, username):
