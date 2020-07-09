@@ -31,16 +31,16 @@ class Instructor(models.Model):
 
 
 @receiver(post_save, sender=User)
-def create_user_profile(sender, model, instance, created, **kwargs):
+def create_user_profile(sender, instance, created, model="Customer", **kwargs):
     if created:
-        if model == Customer:
+        if model == "Customer":
             Customer.objects.create(user=instance)
         else:
             Instructor.objects.create(user=instance)
 
 @receiver(post_save, sender=User)
-def save_user_profile(sender, model, instance, **kwargs):
-    if model == Customer:
+def save_user_profile(sender, instance, model, **kwargs):
+    if model == "Customer":
         instance.customer.save()
     else:
         instance.instructor.save()
@@ -48,17 +48,17 @@ def save_user_profile(sender, model, instance, **kwargs):
 
 class Feedback(models.Model):
     MARKS = (
-        ('1', 'Неквалифицированный тренер'),
-        ('2', 'Плохой тренер'),
-        ('3', 'Нормальный тренер'),
-        ('4', 'Хороший тренер'),
-        ('5', 'Лучшей тренер')
+        (1, 'Неквалифицированный тренер'),
+        (2, 'Плохой тренер'),
+        (3, 'Нормальный тренер'),
+        (4, 'Хороший тренер'),
+        (5, 'Лучшей тренер')
     )
     author = models.ForeignKey(Customer, models.CASCADE, "feedbacks")
     instructor = models.ForeignKey(Customer, models.CASCADE, "feedbacks")
     text = models.TextField('отзыв')
     created = models.DateTimeField('дата публикации', auto_now_add=True)
-    rate = models.CharField('оценка', max_length=1, choices=MARKS)
+    rate = models.PositiveSmallIntegerField('оценка', max_length=1, choices=MARKS)
 
 
 class Programm(models.Model):
