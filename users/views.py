@@ -1,9 +1,13 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Client, Trainer
 
+from .utils import qs_to_filters
+
 
 def index(request):
-    return render(request, "index.html")
+    trainers_list = Trainer.objects.filter(**qs_to_filters(request.GET))
+
+    return render(request, "index.html", {'trainers_list': trainers_list})
 
 
 def profile_client(request, username):
