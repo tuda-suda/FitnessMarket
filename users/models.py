@@ -62,7 +62,7 @@ class Review(models.Model):
     rate = models.CharField('оценка', max_length=1, choices=MARKS)
 
 
-class TrainingProgramm(models.Model):
+class TrainingProgram(models.Model):
     client = models.ForeignKey(Client, models.CASCADE, "program")
     trainer = models.ForeignKey(Trainer, models.CASCADE, "programs")
     text = models.TextField('программа тренировок')
