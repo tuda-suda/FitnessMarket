@@ -2,6 +2,10 @@ from django.shortcuts import get_object_or_404, render
 from .models import Client, Trainer
 
 
+def index(request):
+    return render(request, "index.html")
+
+
 def profile_client(request, username):
     client = get_object_or_404(Client, username=username)
     return render(request, "client_profile.html", {"client": client})
