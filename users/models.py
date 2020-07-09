@@ -3,10 +3,12 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 GENDERS = (
         ("M", "Мужчина"),
         ("F", "Женщина"),
     )
+
 
 class Client(models.Model):
     user = models.OneToOneField(User, models.CASCADE)
@@ -23,11 +25,10 @@ class Client(models.Model):
 
 
 class Trainer(models.Model):
-    clients = models.ForeignKey Client, models.CASCADE,  "clients")
     user = models.OneToOneField(User, models.CASCADE)
+    clients = models.ForeignKey(Client, models.CASCADE, "clients")
     sport = models.CharField('вид спорта', max_length=50)
     cost = models.PositiveSmallIntegerField('рублей за час')
-
 
 
 @receiver(post_save, sender=User)
@@ -41,12 +42,12 @@ def create_user_profile(sender, model, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, model, instance, **kwargs):
     if model == Client:
-        instance Client.save()
+        instance.client.save()
     else:
-        instance.Trainer.save()
+        instance.trainer.save()
 
 
-class Feedback(models.Model):
+class Review(models.Model):
     MARKS = (
         ('1', 'Неквалифицированный тренер'),
         ('2', 'Плохой тренер'),
@@ -54,8 +55,8 @@ class Feedback(models.Model):
         ('4', 'Хороший тренер'),
         ('5', 'Лучший тренер')
     )
-    author = models.ForeignKey(Client, models.CASCADE, "feedbacks")
-    trainer = models.ForeignKey(Client, models.CASCADE, "feedbacks")
+    author = models.ForeignKey(Client, models.CASCADE, "client_reviews")
+    trainer = models.ForeignKey(Client, models.CASCADE, "trainer_reviews")
     text = models.TextField('отзыв')
     created = models.DateTimeField('дата публикации', auto_now_add=True)
     rate = models.CharField('оценка', max_length=1, choices=MARKS)
@@ -63,8 +64,8 @@ class Feedback(models.Model):
 
 class TrainingProgramm(models.Model):
     client = models.ForeignKey(Client, models.CASCADE, "program")
-    trainer = models.ForeignKey(TRainer, models.CASCADE, "programs")
+    trainer = models.ForeignKey(Trainer, models.CASCADE, "programs")
     text = models.TextField('программа тренировок')
     
     class Meta:
-        unique_together = [ Client", "Trainer"]
+        unique_together = [ "client", "trainer"]
