@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+
+<h3>Я хочу стать:</h3>
+<div class="row">
+    <a href="{% url 'signup_main' 'trainer' %}" role="button" class="btn-lg btn-primary">Тренер</a>
+    <a href="{% url 'signup_main' 'client' %}" role="button" class="btn-lg btn-primary">Клиент</a>
+</div>
+
+{% endblock %}

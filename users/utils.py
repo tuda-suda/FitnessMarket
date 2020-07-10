@@ -9,13 +9,14 @@ def qs_to_filters(querystrings: Dict) -> Dict:
     filters = {}
 
     for query in querystrings:
-        if query == 'priceFrom':
-            filter_field = 'cost__gte'
-        elif query == 'priceTo':
-            filter_field = 'cost__lte'
-        else:
-            filter_field = query
+        if querystrings[query]:
+            if query == 'priceFrom':
+                filter_field = 'cost__gte'
+            elif query == 'priceTo':
+                filter_field = 'cost__lte'
+            else:
+                filter_field = query
 
-        filters[filter_field] = querystrings[query]
+            filters[filter_field] = querystrings[query]
 
     return filters
