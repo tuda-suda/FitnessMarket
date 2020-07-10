@@ -42,7 +42,7 @@ class Trainer(models.Model):
     location = models.CharField(max_length=100, choices=REGIONS)
     gender = models.CharField('пол', max_length=1, choices=GENDERS)
     clients = models.ForeignKey(Client, models.CASCADE, "clients")
-    sport = models.CharField('вид спорта', max_length=50)
+    sport = models.CharField('вид спорта', max_length=50, blank=True, null=True)
     cost = models.PositiveSmallIntegerField('рублей за час', blank=True)
 
 

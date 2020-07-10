@@ -3,10 +3,14 @@
 
 {% block content %}
 
-<h3>Я хочу стать:</h3>
-<div class="row">
-    <a href="{% url 'signup_main' 'trainer' %}" role="button" class="btn-lg btn-primary">Тренер</a>
-    <a href="{% url 'signup_main' 'client' %}" role="button" class="btn-lg btn-primary">Клиент</a>
+<div class="column col-md-8 mx-auto">
+    <div class="col-md-8 mx-auto my-5">
+        <h3>Зарегистрироваться как:</h3>
+    </div>
+    <div class="row justify-content-around">
+        <a href="{% url 'signup_main' 'trainer' %}" role="button" class="btn-lg btn-primary">Тренер</a>
+        <a href="{% url 'signup_main' 'client' %}" role="button" class="btn-lg btn-primary">Клиент</a>
+    </div>
 </div>
 
 {% endblock %}
